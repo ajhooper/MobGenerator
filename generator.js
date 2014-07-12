@@ -1,31 +1,35 @@
 
 function generate(){
-    var hit_dice[6, 8, 10, 12];
+    var hit_dice = [6, 8, 10, 12];
+
     var num = document.getElementById("num_mob").value;
     var lev = document.getElementById("level").value;
-    
-    var str = Math.floor((Math.random() * 10) + 11);
-    var con = Math.floor((Math.random() * 10) + 11);
-    var dex = Math.floor((Math.random() * 10) + 11);
-    var hp = 0;
-    var str_val = stat_val(str);
-    var con_val = stat_val(con);
-    var dex_val = stat_val(dex);
-    var hd = hit_dice[Math.floor((Math.random() * 4))];
-    
-    var i =0;
-    var j =0;
-    
-    while(j != num){
 
-    }
+    var i =0;
+    
+    for (i=0; i<num; i++){	
+	var str = Math.floor((Math.random() * 10) + 11);
+	var con = Math.floor((Math.random() * 10) + 11);
+	var dex = Math.floor((Math.random() * 10) + 11);
+	var hp = 0;
+	var str_val = stat_val(str);
+	var con_val = stat_val(con);
+	var dex_val = stat_val(dex);
+	var hd = hit_dice[Math.floor((Math.random() * 4))];
 	
-    while(i != num){
-        rand = Math.floor((Math.random() * lev) + 1);		
-        document.getElementById("txta").value+=rand + "\n";
-        i++;
+	var j =0;
+	
+	for (j=0; j<lev; j++){
+	    hp += Math.floor((Math.random() * hd) + 1) + con_val;
+	}
+	
+	var ac = 10 + dex_val + 3;
+	
+	var str = "HP: " + hp + "\nHitDice: " + hd + "\nAC: "+ ac  + "\nStr: " + str+ "/"+ str_val + "\nCon: " + con+ "/" + con_val  + "\nDex: " + dex+ "/" + dex_val;
+	
+	
+	document.getElementById("txta").value+=str + "\n\n";
     }
-    document.getElementById("txta").value+="\n";
 }
 
 function stat_val(stat){
