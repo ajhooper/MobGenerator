@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>DnD Mob Generator</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="bootstrap.min.css" rel="stylesheet"><!-- TODO-->
+
+  <!-- Custom styles for this template -->
+  <link href="mobgen.css" rel="stylesheet"><!--TODO-->
+
+  <body>
+
+    <!-- Start of Content -->
+    <div class="header">
+
+      <!-- Left Side -->
+      <img class="logo" src="sochilogo.png" alt="Sochi 2014">
+      
+    </div>
+
+      <!-- Start of Body -->
+      <div class="content">
+        <p class="group-name">4 is better than 6</p>
+        <p>Ardhimas Kamdani<br>Stewart Johnson<br>Austin Hooper<br>Nickson Dalimantara</p>
+      </div>
+
+
+    <!-- Bootstrap core JavaScript
+================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+  </body>
