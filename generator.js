@@ -22,47 +22,60 @@ function generate(){
 	for (j=0; j<lev; j++){
 	    hp += Math.floor((Math.random() * hd) + 1) + con_val;
 	}
+
+	var armor = generate_armor();
+	armor[1] = Math.min(armor[1], dex_val);
+
+	var weapons = generate_weapons();
+
+	var ac = 10 + armor[0] + armor[1] + weapons[3];
 	
-	var ac = 10 + dex_val + 3;
-	
-	var str = "HP: " + hp + "\nHitDice: " + hd + "\nAC: "+ ac  + "\nStr: " + str+ "/"+ str_val + "\nCon: " + con+ "/" + con_val  + "\nDex: " + dex+ "/" + dex_val;
-	
+	var str = "HP: " + hp + "\nHitDice: " + hd + "\nAC: "+ ac + ", "+ armor[2] + 
+	    "\nStr: " + str+ "/"+ str_val +"\nCon: " + con+ "/" + con_val  + "\nDex: " + dex+ "/" + dex_val +
+	    "\n"+weapons[0] + ": 1d" + weapons[1];
+	if (weapons[0] === "Dual Wield"){
+	    str += "/ 1d" + weapons[2];
+	}
 	
 	document.getElementById("txta").value+=str + "\n\n";
     }
 }
 
+//Format for array: [type, main hand, off hand, armor bonus]
+function generate_weapons(){
+    var rand = Math.floor((Math.random() * 4));
+    if (rand == 0){
+	return ["Dual Wield", 6, 4, 0];
+    }
+    else if (rand == 1){
+	return ["Two Hand", 10, 0, 0];
+    }
+    else if (rand == 2){
+	return ["One Hand/Shield", 6, 0, 2];
+    }
+    else{
+	return ["Ranged", 6, 0, 0]
+    }
+
+}
+
+//Format for array: [armor bonus, max dex]
+function generate_armor(){
+    var rand = Math.floor((Math.random() * 3));
+    if (rand == 0){
+	return [6, 0, "Heavy (6/0)"];
+    }
+    else if (rand == 1){
+	return [4, 3, "Medium (4,3)"];
+    }
+    else{
+	return [3, 5, "Light (3,5)"];
+    }
+}
+
 function stat_val(stat){
     var val;
-    switch(stat){
-    case 10:
-    case 11:
-	val = 0;
-	break;
-    case 12:
-    case 13:
-	val = 1;
-	break;
-    case 14:
-    case 15:
-	val = 2;
-	break;
-    case 16:
-    case 17:
-	val = 3;
-	break;
-    case 18:
-    case 19:
-	val = 4;
-	break;
-    case 20:
-	val = 5;
-	break;
-    default:
-	val = 0;
-	break;
-    }
-    return val;
+    return Math.floor((stat-10)/2)
 }
 
 function clean()

@@ -10,7 +10,7 @@ background: linear-gradient(#3090C7, #357EC7);
 }
 
 body {
-padding: 50px 0px 0px 0px;
+padding: 0px 0px 0px 0px;
 margin: 0px 0px 0px 0px;
 color:black;
 background-color:#FFFFFF;
@@ -54,7 +54,7 @@ color: white;
 width:760px;
 height:50px;
 padding: 20px 20px 20px 20px;
-margin: 60px auto 0px auto;
+margin: 20px auto 0px auto;
 text-align: center;
 background-color: #E5E4E2;
 border: 1px solid #000000
@@ -70,12 +70,6 @@ text-align: center;
 border-bottom: 1px solid #000000
 }
 
-/* Country Classes */
-.logo{
-margin-left: auto;
-    margin-right: auto;
-max-width:700px;
-}
 .group-name{
 text-align:center;
 padding: 10px 0px 0px 0px;
@@ -102,6 +96,16 @@ width: 760px;
 background-color:#E5E4E2;
 border: 1px solid #000000
 }
+
+
+form  { display: table;     }
+p     { display: table-row; }
+label { display: table-cell;
+	padding-right: 10px;
+}
+input { display: table-cell;}
+
+
 /* unvisited link */
 a:link {
     color: #000000
